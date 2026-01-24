@@ -66,7 +66,7 @@ namespace SB
             cameraCtrl.SetTarget(_playerInstance.transform);
 
             var spawner = Object.FindAnyObjectByType<EnemySpawner>();
-            spawner.StartSpawn();
+            spawner.StartSpawn(_playerInstance.transform);
         }
     }
 }

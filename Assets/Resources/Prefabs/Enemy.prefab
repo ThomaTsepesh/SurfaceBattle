@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1608356315959505286}
   - component: {fileID: 7274464934609676047}
   - component: {fileID: 8077751472411436590}
+  - component: {fileID: -7946606086044707416}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -153,3 +154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a797909256474a4eacdc37ae419bac56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SB.UnitData
+--- !u!114 &-7946606086044707416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640404524233951470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e362e69e1c68487685ac8fa7879408d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SB.EnemyAI

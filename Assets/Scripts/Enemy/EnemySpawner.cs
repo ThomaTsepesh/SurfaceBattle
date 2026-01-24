@@ -12,9 +12,11 @@ namespace SB
         [SerializeField] private float _offsetFromEdge = 1f;
 
         private bool _isSpawning;
+        private Transform _playerTransform;
 
-        public void StartSpawn()
+        public void StartSpawn(Transform transform)
         {
+            _playerTransform = transform;
             _isSpawning = true;
             StartCoroutine(SpawnRoutine());
         }
@@ -33,8 +35,16 @@ namespace SB
             var enemyObj = Instantiate(_enemyPrefab, spawnPos, Quaternion.identity);
             var model = UnitFactory.CreateEnemy();
             var core = enemyObj.GetComponent<UnitData>();
+            
             if (core != null)
                 core.Init(model);
+            
+            var ai = enemyObj.GetComponent<EnemyAI>();
+            
+            if (ai != null)
+            {
+                ai.Initialize(_playerTransform, _boxCollider);
+            }
         }
 
         private Vector3 GetRandomPointOnEdge()
