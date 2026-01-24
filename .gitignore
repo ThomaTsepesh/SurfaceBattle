@@ -1,0 +1,64 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+MemoryCaptures/
+Recordings/
+Assets/AssetStoreTools*
+Assets/StreamingAssets/aa.meta
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+*.DotSettings
+*.DotSettings.user
+*.sln.docstates
+
+# VSCode (если кто-то использует)
+.vscode/
+
+# Mono / VS / MacOS
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# DOTS auto-gen
+Generated/
+*.bak
+*.generated.cs
+*.asmdef.meta
+
+!GameLoop.generated.cs
+
+# Crash dumps, profiling logs
+sysinfo.txt
+crash.dmp
+*.stacktrace
+*.memorysnapshot
+
+# Rider logs (если включено)
+.idea/.idea_modules/
+.idea/modules.xml
+
+# Visual Studio Code Workspace Storage
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-workspace
+.vscode/workspaceStorage/
+
+# OS-specific
+.DS_Store
+Thumbs.db

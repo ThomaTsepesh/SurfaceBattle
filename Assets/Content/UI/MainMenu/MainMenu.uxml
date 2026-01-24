@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Content/UI/MainMenu/MainMenu.uss?fileID=7433441132597879392&amp;guid=0a01674e81b546efaba8844e766bbdc7&amp;type=3#MainMenu"/>
+    <ui:VisualElement class="main-menu">
+        <ui:Button name="start-btn" text="START" class="start-btn"/>    
+    </ui:VisualElement>
+</ui:UXML>
