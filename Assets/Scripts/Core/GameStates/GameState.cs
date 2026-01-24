@@ -51,7 +51,6 @@ namespace SB
         private void InitLevel()
         {
             var playerPrefab = Resources.Load<GameObject>("Prefabs/player");
-            
             _playerInstance = Object.Instantiate(
                     playerPrefab, 
                     _levelContext.PlayerSpawnPoint.position, 
@@ -59,6 +58,15 @@ namespace SB
                 );
             
             _playerInstance.name = "Hero";
+            
+            var playerModel = UnitFactory.CreatePlayer();
+            _playerInstance.GetComponent<UnitData>().Init(playerModel);
+            
+            var cameraCtrl = _levelContext.Cam.GetComponent<CameraController>();
+            cameraCtrl.SetTarget(_playerInstance.transform);
+
+            var spawner = Object.FindAnyObjectByType<EnemySpawner>();
+            spawner.StartSpawn();
         }
     }
 }
