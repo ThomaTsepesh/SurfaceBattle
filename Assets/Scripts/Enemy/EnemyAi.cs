@@ -5,7 +5,7 @@ namespace SB
     public class EnemyAI : MonoBehaviour
     {
         //TODO - выкинуть иишный иишник
-        private UnitData _core;
+        private UnitCore _core;
         private Transform _target;
         private Collider _mapBounds;
         
@@ -16,7 +16,7 @@ namespace SB
         
         private void Awake()
         {
-            _core = GetComponent<UnitData>();
+            _core = GetComponent<UnitCore>();
             // Каждый враг получает случайный начальный угол
             _orbitAngle = Random.Range(0f, 360f);
             // Разброс дистанции, чтобы враги не сбивались в кучу

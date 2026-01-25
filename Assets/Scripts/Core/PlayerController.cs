@@ -7,13 +7,13 @@ namespace SB
     {
         private Rigidbody _rigidbody;
         private Vector2 _vector2;
-        private UnitData _unitData;
+        private UnitCore _unitCore;
         private Shooter _shooter;
         private Collider _mapBounds;
 
         private void Awake()
         {
-            _unitData = GetComponent<UnitData>();
+            _unitCore = GetComponent<UnitCore>();
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             _shooter = GetComponent<Shooter>();
@@ -41,7 +41,7 @@ namespace SB
         private void FixedUpdate()
         {
             var vector3 = new Vector3(_vector2.x, 0, _vector2.y);
-            _rigidbody.MovePosition(_rigidbody.position + vector3 * _unitData.Data.Speed * Time.fixedDeltaTime);
+            _rigidbody.MovePosition(_rigidbody.position + vector3 * _unitCore.Data.Speed * Time.fixedDeltaTime);
 
             if (vector3 != Vector3.zero)
             {

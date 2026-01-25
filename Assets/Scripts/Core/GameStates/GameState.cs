@@ -60,7 +60,7 @@ namespace SB
             _playerInstance.name = "Hero";
             
             var playerModel = UnitFactory.CreatePlayer();
-            _playerInstance.GetComponent<UnitData>().Init(playerModel);
+            _playerInstance.GetComponent<UnitCore>().Init(playerModel);
             
             var cameraCtrl = _levelContext.Cam.GetComponent<CameraController>();
             cameraCtrl.SetTarget(_playerInstance.transform);

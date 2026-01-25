@@ -41,11 +41,10 @@ namespace SB
                 return;
             }
 
-            var target = other.GetComponent<UnitData>();
+            var target = other.GetComponent<UnitCore>();
             if (target != null)
             {
-                target.Data.CurrentHealth -= _damage;
-                Debug.Log($"Попал в {other.name}! HP осталось: {target.Data.CurrentHealth}");
+                target.TakeDamage(_damage);
                 Destroy(gameObject);
             }
         }
