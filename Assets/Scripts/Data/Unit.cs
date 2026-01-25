@@ -2,16 +2,25 @@
 {
     public class Unit
     {
-        public string Name { get; }
-        public int MaxHealth { get; }
-        public float Speed { get; }
-        public int RewardExperience { get; }
-        public int CurrentHealth { get; set; }
+        public string Name;
+        public float Speed;
+        
+        public int Damage;
+        public float FireRate;
+
+        public int MaxHealth;
+        public int CurrentHealth;
+                
+        public int RewardExperience;
+        public int Experience = 0;
+        public int Level = 1;
 
         public Unit(string name, int health, float speed)
         {
             Name = name;
             MaxHealth = health;
+            Damage = 25;
+            FireRate = 0.3f;
             CurrentHealth = health;
             Speed = speed;
             RewardExperience = health / 2;

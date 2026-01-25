@@ -13,18 +13,26 @@ namespace SB
             Data = model;
         }
 
-        public void TakeDamage(int damage)
+        public bool TakeDamage(int damage)
         {
             Data.CurrentHealth -= damage;
             if (Data.CurrentHealth <= 0)
             {
                 Die();
+                return true;
             }
+
+            return false;
         }
 
         private void Die()
         {
             Destroy(gameObject);
+        }
+
+        public int GetExpReward()
+        {
+            return Data.RewardExperience;
         }
 
         private void OnDestroy()

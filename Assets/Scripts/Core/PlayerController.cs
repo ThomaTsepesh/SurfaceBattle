@@ -22,7 +22,7 @@ namespace SB
         public void SetMapBounds(Collider map)
         {
             _mapBounds = map;
-            _shooter.Init(0.3f, _mapBounds);
+            _shooter.Init(_mapBounds, _unitCore);
         }
 
         public void OnMove(InputValue value)
@@ -32,7 +32,7 @@ namespace SB
 
         public void Update()
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            if (Keyboard.current.spaceKey.isPressed)
             {
                 _shooter.TryShoot(transform.forward);
             }

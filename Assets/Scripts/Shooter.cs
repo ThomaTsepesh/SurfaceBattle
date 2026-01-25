@@ -5,7 +5,7 @@ namespace SB
     public class Shooter : MonoBehaviour
     {
         private GameObject _bulletPrefab;
-        private float _fireRate;
+        private UnitCore _unitCore;
         private float _nextFireTime;
         private Collider _mapBounds;
         
@@ -14,10 +14,10 @@ namespace SB
             _bulletPrefab = Resources.Load<GameObject>("Prefabs/Bullet");
         }
 
-        public void Init(float fireRate, Collider mapBounds)
+        public void Init(Collider mapBounds, UnitCore core)
         {
-            _fireRate = fireRate;
             _mapBounds = mapBounds;
+            _unitCore = core;
         }
 
         public void TryShoot(Vector3 direction)
@@ -25,7 +25,7 @@ namespace SB
             if (Time.time < _nextFireTime) return;
             
             Shoot(direction);
-            _nextFireTime = Time.time + _fireRate;
+            _nextFireTime = Time.time + _unitCore.Data.FireRate;
         }
 
 
@@ -36,8 +36,8 @@ namespace SB
             
             bullet.GetComponent<Bullet>().Init(
                 direction, 
-                25, 
-                gameObject.tag, 
+                _unitCore.Data.Damage,
+                _unitCore, 
                 _mapBounds
             );
         }

@@ -6,7 +6,7 @@ namespace SB
     {
         private float _speed = 30f;
         private int _damage;
-        private string _ownerTag;
+        private UnitCore _owner;
         private Rigidbody _rigidbody;
         private Collider _mapBounds;
 
@@ -15,10 +15,10 @@ namespace SB
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Init(Vector3 direction, int damage, string ownerTag, Collider mapBounds)
+        public void Init(Vector3 direction, int damage, UnitCore owner, Collider mapBounds)
         {
             _damage = damage;
-            _ownerTag = ownerTag;
+            _owner = owner;
             _mapBounds = mapBounds;
 
             _rigidbody.linearVelocity = new Vector3(direction.x, 0, direction.z).normalized * _speed;
@@ -36,7 +36,7 @@ namespace SB
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(_ownerTag))
+            if (other.CompareTag(_owner.tag))
             {
                 return;
             }
@@ -44,7 +44,10 @@ namespace SB
             var target = other.GetComponent<UnitCore>();
             if (target != null)
             {
-                target.TakeDamage(_damage);
+                if (target.TakeDamage(_damage))
+                {
+                    LevelSystem.AddExp(_owner.Data, target.GetExpReward());
+                }
                 Destroy(gameObject);
             }
         }
