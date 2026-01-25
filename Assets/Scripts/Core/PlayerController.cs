@@ -3,22 +3,39 @@ using UnityEngine.InputSystem;
 
 namespace SB
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         private Rigidbody _rigidbody;
         private Vector2 _vector2;
         private UnitData _unitData;
+        private Shooter _shooter;
+        private Collider _mapBounds;
 
         private void Awake()
         {
             _unitData = GetComponent<UnitData>();
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            _shooter = GetComponent<Shooter>();
+        }
+
+        public void SetMapBounds(Collider map)
+        {
+            _mapBounds = map;
+            _shooter.Init(0.3f, _mapBounds);
         }
 
         public void OnMove(InputValue value)
         {
             _vector2 = value.Get<Vector2>();
+        }
+
+        public void Update()
+        {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                _shooter.TryShoot(transform.forward);
+            }
         }
 
         private void FixedUpdate()

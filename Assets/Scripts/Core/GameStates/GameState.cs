@@ -67,6 +67,9 @@ namespace SB
 
             var spawner = Object.FindAnyObjectByType<EnemySpawner>();
             spawner.StartSpawn(_playerInstance.transform);
+            
+            _playerInstance.GetComponent<PlayerController>().SetMapBounds(spawner.GetComponent<Collider>());
+
         }
     }
 }
