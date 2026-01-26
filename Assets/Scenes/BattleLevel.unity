@@ -751,6 +751,7 @@ MonoBehaviour:
   _boxCollider: {fileID: 536320293}
   _spawnInterval: 2
   _offsetFromEdge: 1
+  _maxEnemies: 5
 --- !u!4 &828515375
 Transform:
   m_ObjectHideFlags: 0
@@ -797,6 +798,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1870779407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870779409}
+  - component: {fileID: 1870779408}
+  m_Layer: 0
+  m_Name: BoosterSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1870779408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870779407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d242399e0b4fae95af212d3a087f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SB.BoosterSpawner
+  _boosterPrefab: {fileID: 3077219539324766325, guid: 02a668a3c25670f4e9c62d97775c2725, type: 3}
+  _spawnArea: {fileID: 536320293}
+  _interval: 30
+--- !u!4 &1870779409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870779407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.28472, y: 0, z: -3.95916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -808,3 +856,4 @@ SceneRoots:
   - {fileID: 1632911545}
   - {fileID: 353286560}
   - {fileID: 828515375}
+  - {fileID: 1870779409}

@@ -8,7 +8,7 @@ namespace SB
 
         public static void AddExp(Unit unit, int exp)
         {
-            unit.Experience += exp;
+            unit.Experience += unit.IsXpBoosted? exp * 2 : exp;
 
             while (CheckLevelUp(unit))
             {

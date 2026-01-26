@@ -15,6 +15,11 @@ namespace SB
 
         public bool TakeDamage(int damage)
         {
+            if (Data.IsInvulnerable)
+            {
+                return false;
+            }
+            
             Data.CurrentHealth -= damage;
             if (Data.CurrentHealth <= 0)
             {

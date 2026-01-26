@@ -15,6 +15,9 @@
         public int Experience = 0;
         public int Level = 1;
 
+        public bool IsInvulnerable;
+        public bool IsXpBoosted;
+
         public Unit(string name, int health, float speed)
         {
             Name = name;
