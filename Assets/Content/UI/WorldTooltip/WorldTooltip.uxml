@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Content/UI/WorldTooltip/WorldTooltip.uss?fileID=7433441132597879392&amp;guid=159f435026ad50048985f023ee08c30d&amp;type=3#WorldTooltip"/>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:Label text="1111111111111111" class="label"/>
+    </ui:VisualElement>
+</ui:UXML>

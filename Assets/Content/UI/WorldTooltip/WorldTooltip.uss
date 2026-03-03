@@ -1,0 +1,11 @@
+:root {
+}
+
+.label {
+    font-size: 24px;
+    background-color: rgba(53, 53, 53, 0.76);
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-center;
+    width: 200px;
+    height: 30px;
+}
