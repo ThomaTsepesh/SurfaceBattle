@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Content/UI/HpBar/HealthBar.uss?fileID=7433441132597879392&amp;guid=588cd33f07ed479e89f3261c98136c22&amp;type=3#HealthBar"/>
+    <ui:VisualElement name="hp-bar-root" class="hp-bar-background">
+        <ui:VisualElement name="health-fill" class="hp-bar-fill"/>
+    </ui:VisualElement>
+    <ui:Label name="damage-text" class="damage-text-style" text="100" />
+</ui:UXML>

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Content/UI/GameUi/GameUi.uss?fileID=7433441132597879392&amp;guid=ce9453ad1d809e74e8ef145caccbf564&amp;type=3#GameUi"/>
+    <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%;">
+        <ui:VisualElement name="HealthBarsLayer" picking-mode="Ignore" style="flex-grow: 1; position: absolute; width: 100%; height: 100%;"/>
+    </ui:VisualElement>
+</ui:UXML>

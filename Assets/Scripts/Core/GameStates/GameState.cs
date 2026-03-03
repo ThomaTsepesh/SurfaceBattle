@@ -11,6 +11,7 @@ namespace SB
         
         private LevelContext _levelContext;
         private GameObject _playerInstance;
+        private static GameUi _gameUiInstance;
         
         public async void EnterState()
         {
@@ -19,6 +20,7 @@ namespace SB
             
             _levelContext = Object.FindAnyObjectByType<LevelContext>();
             
+            InitUi();
             InitLevel();
         }
 
@@ -26,6 +28,11 @@ namespace SB
         {
             if (_playerInstance != null) 
                 Object.Destroy(_playerInstance);
+            
+            if (_gameUiInstance != null)
+            {
+                Object.Destroy(_gameUiInstance.gameObject);
+            }
         }
 
         public void OnUpdate()
@@ -57,6 +64,11 @@ namespace SB
                     _levelContext.PlayerSpawnPoint.rotation
                 );
             
+            var hpPrefab = Resources.Load<GameObject>("UI/HealthBarWorld");
+            var hpObj = Object.Instantiate(hpPrefab, _playerInstance.transform);
+            hpObj.transform.localPosition = new Vector3(0, 1.5f, 0);
+            var healthBarComponent = hpObj.GetComponent<HealthBar>();
+            _playerInstance.GetComponent<UnitCore>().SetHpBar(healthBarComponent);
             _playerInstance.name = "Hero";
             
             var playerModel = UnitFactory.CreatePlayer();
@@ -67,9 +79,19 @@ namespace SB
 
             var spawner = Object.FindAnyObjectByType<EnemySpawner>();
             spawner.StartSpawn(_playerInstance.transform);
-            
-            _playerInstance.GetComponent<PlayerController>().SetMapBounds(spawner.GetComponent<Collider>());
+            _playerInstance.GetComponent<PlayerController>().SetMapBounds(spawner.GetComponent<Collider>()); 
+        }
 
+        private void InitUi()
+        {
+            var prefabMainMenu = Resources.Load<GameObject>("UI/GameUi");
+            if (prefabMainMenu == null)
+            {
+                Debug.LogError("Could not load GameUi prefab from Resources/UI/GameUi");
+                return;
+            }
+            var go = Object.Instantiate(prefabMainMenu);
+            _gameUiInstance = go.GetComponent<GameUi>();
         }
     }
 }

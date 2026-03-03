@@ -44,6 +44,10 @@ namespace SB
             var core = enemyObj.GetComponent<UnitCore>();
             core.Init(model);
             
+            var hpObj = Instantiate(Resources.Load<GameObject>("UI/HealthBarWorld"), enemyObj.transform);
+            hpObj.transform.localPosition = new Vector3(0, 2.5f, 0);
+            core.SetHpBar(hpObj.GetComponent<HealthBar>());
+            
             if (ai != null)
             {
                 ai.Initialize(_playerTransform, _boxCollider);
